@@ -1,8 +1,11 @@
+import "./app.css"
+import API from "./components/API.jsx"
+
 function App() {
   
 
   return (
-    <h1>app</h1>
+    <API />
   )
 }
 
