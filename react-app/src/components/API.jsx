@@ -34,7 +34,7 @@ const API = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center h-screen bg-gray-600 text-gray-50 ">
+        <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-b from-gray-700 to-gray-900 text-gray-100 ">
             <h1 className="mb-15 font-bold font-serif text-2xl">Ask The Oracle</h1>
              <input 
                 placeholder="What do you want to ask The Oracle?" 
@@ -53,18 +53,13 @@ const API = () => {
             </button>
             <div>
             {userQuestion && (
-                <p className="max-w-100">
-                    <span className="font-bold text-amber-300">Your question: </span>{userQuestion}
-                </p>
+                <div>
+                    <p className="max-w-100"><span className="font-bold text-amber-300">Your question: </span>{userQuestion}</p>
+                    <p className="max-w-100"><span className="font-bold text-green-400">The oracle's advice: </span>{advice.fact}</p>
+                </div>
             )}
-            <p className="max-w-100"><span className="font-bold text-green-400">The oracle's advice: </span>{advice.fact}</p>
-
             </div>
-           
         </div>
-
-
-
     );
 };
 

@@ -1,4 +1,3 @@
-import "./app.css"
 import API from "./components/API.jsx"
 
 function App() {
