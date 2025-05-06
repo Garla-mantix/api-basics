@@ -26,7 +26,8 @@ const API = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+        <div className="flex flex-col items-center justify-center h-screen bg-gray-600 text-gray-50 ">
+            <h1 className="mb-20 font-bold font-serif text-2xl">Ask The Oracle</h1>
              <input 
                 placeholder="What do you want to ask The Oracle?" 
                 className="bg-gray-200  mb-8 max-w-100 text-center appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" 
@@ -39,7 +40,7 @@ const API = () => {
                 className="bg-blue-500 hover:bg-blue-700 mb-8 text-white font-bold py-2 px-4 border border-blue-700 rounded"
             >
                 Ask </button>
-            <p className="max-w-100"><span className="font-bold">The oracle's advice: </span>{advice.fact}</p>
+            <p className="max-w-100"><span className="font-bold text-amber-300">The oracle's advice: </span>{advice.fact}</p>
         </div>
 
 
