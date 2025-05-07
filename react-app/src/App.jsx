@@ -14,9 +14,9 @@ function App() {
 
   const handleLogin = (username, password) => {
     const storedUsername = localStorage.getItem("username",);
-    const storedPassowrd = localStorage.getItem("password",);
+    const storedPassword = localStorage.getItem("password",);
 
-    if (username === storedUsername && password === storedPassowrd) {
+    if (username === storedUsername && password === storedPassword) {
       setCurrentScreen("API");
     } else {
       setError("Invalid username or password");
