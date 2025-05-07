@@ -44,6 +44,7 @@ const API = () => {
                 value={inputValue}
                 onKeyDown={handleKeyDown}
                 onChange={handleInputChange}
+                autoFocus
              />
             <button 
                 onClick={showAdvice} 

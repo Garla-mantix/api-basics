@@ -6,16 +6,11 @@ const Registration = ({ onRegistration }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleRegistration = () => {
-        localStorage.setItem("username", username);
-        localStorage.setItem("password", password);
-        onRegistration(username, password);
-    };
-
-    const handleKeyDown = (event) => {
-        if (event.key === "Enter") {
-            handleRegistration();
-        }
+    const handleRegistration = (e) => {
+      e.preventDefault();
+      localStorage.setItem("username", username);
+      localStorage.setItem("password", password);
+      onRegistration();
     };
 
     return (
@@ -28,9 +23,7 @@ const Registration = ({ onRegistration }) => {
                   </div>
                   <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                     <form
-                    onSubmit={(e) => {
-                      handleRegistration();
-                    }} 
+                    onSubmit={handleRegistration} 
                     className="space-y-6">
                       <div>
                         <label htmlFor="text" className="block text-sm/6 font-medium text-white">
@@ -44,6 +37,7 @@ const Registration = ({ onRegistration }) => {
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                             required
+                            autoFocus
                             className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-black outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                           />
                         </div>
@@ -61,7 +55,6 @@ const Registration = ({ onRegistration }) => {
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            onKeyDown={handleKeyDown}
                             required
                             className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                           />
@@ -70,8 +63,7 @@ const Registration = ({ onRegistration }) => {
           
                       <div>
                         <button
-                          type="button"
-                          onClick={handleRegistration}
+                          type="submit"
                           className="flex w-full justify-center rounded-md bg-indigo-400 px-3 py-1.5 text-sm/6 font-semibold text-black shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         >
                           Create account
