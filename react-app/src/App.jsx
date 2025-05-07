@@ -5,25 +5,25 @@ import Login from "./components/Login.jsx"
 import Registration from "./components/Registration.jsx"
 
 function App() {
+  const [currentScreen, setCurrentScreen] = useState("Registration");
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const handleRegistration = () => {
+    setCurrentScreen("Login");
+  };
 
   const handleLogin = (username, password) => {
     if (username && password) {
-      setIsLoggedIn(true);
+      setCurrentScreen("API");
     } else {
       alert("Please enter a valid username and password");
     }
   };
-  
 
   return (
     <div>
-      {isLoggedIn ? (
-        <API />
-      ) : (
-        <Login onLogin={handleLogin} />
-      )}
+      {currentScreen === "Registration" && <Registration onRegistration={handleRegistration} />}
+      {currentScreen === "Login" && <Login onLogin={handleLogin} />}
+      {currentScreen === "API" && <API />}
     </div>
   );
 }

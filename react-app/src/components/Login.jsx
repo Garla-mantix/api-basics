@@ -5,11 +5,17 @@ const Login = ({onLogin}) => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
 
     const handleLogin = () => {
-        localStorage.setItem("username", username);
-        localStorage.setItem("password", password);
-        onLogin(username, password);
+        const storedUsername = localStorage.getItem("username",);
+        const storedPassowrd = localStorage.getItem("password",);
+
+        if (username === storedUsername && password === storedPassowrd) {
+            onLogin(username, password);
+        } else {
+            setError("Invalid username or password");
+        }
     };
 
     const handleKeyDown = (event) => {
@@ -68,7 +74,7 @@ const Login = ({onLogin}) => {
                           />
                         </div>
                       </div>
-          
+                      {error && <p className="text-red-500 text-sm">{error}</p>}
                       <div>
                         <button
                           type="button"

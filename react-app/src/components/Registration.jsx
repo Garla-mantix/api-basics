@@ -1,23 +1,22 @@
 import React from "react";
 import { useState } from "react";
 
-const CreateAccount = () => {
+const Registration = ({ onRegistration }) => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleLogin = () => {
+    const handleRegistration = () => {
         localStorage.setItem("username", username);
         localStorage.setItem("password", password);
-        onLogin(username, password);
+        onRegistration(username, password);
     };
 
     const handleKeyDown = (event) => {
         if (event.key === "Enter") {
-            handleLogin();
+            handleRegistration();
         }
     };
-
 
     return (
               <>
@@ -30,7 +29,7 @@ const CreateAccount = () => {
                   <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                     <form
                     onSubmit={(e) => {
-                      handleLogin();
+                      handleRegistration();
                     }} 
                     className="space-y-6">
                       <div>
@@ -72,7 +71,7 @@ const CreateAccount = () => {
                       <div>
                         <button
                           type="button"
-                          onClick={handleLogin}
+                          onClick={handleRegistration}
                           className="flex w-full justify-center rounded-md bg-indigo-400 px-3 py-1.5 text-sm/6 font-semibold text-black shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         >
                           Create account
@@ -85,4 +84,4 @@ const CreateAccount = () => {
     );
 };
 
-export default Login;
+export default Registration;
