@@ -13,8 +13,8 @@ function App() {
   };
 
   const handleLogin = (username, password) => {
-    const storedUsername = localStorage.getItem("username",);
-    const storedPassword = localStorage.getItem("password",);
+    const storedUsername = localStorage.getItem("username");
+    const storedPassword = localStorage.getItem("password");
 
     if (username === storedUsername && password === storedPassword) {
       setCurrentScreen("API");
