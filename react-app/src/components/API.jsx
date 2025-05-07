@@ -38,7 +38,7 @@ const API = () => {
             <h1 className="mb-15 font-bold font-serif text-2xl">Ask The Oracle</h1>
              <input 
                 placeholder="What do you want to ask The Oracle?" 
-                className="bg-gray-200  mb-8 max-w-100 text-center appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" 
+                className="bg-gray-200  mb-6 max-w-100 text-center appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" 
                 id="inline-full-name" 
                 type="text"
                 value={inputValue}
@@ -48,7 +48,8 @@ const API = () => {
              />
             <button 
                 onClick={showAdvice} 
-                className="bg-blue-500 hover:bg-blue-700 mb-8 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+                className="max-w-100 mb-10 flex w-full justify-center rounded-md bg-indigo-400 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        
             >
                 Ask 
             </button>
