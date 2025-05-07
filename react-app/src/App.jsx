@@ -6,16 +6,20 @@ import Registration from "./components/Registration.jsx"
 
 function App() {
   const [currentScreen, setCurrentScreen] = useState("Registration");
+  const [error, setError] = useState("");
 
   const handleRegistration = () => {
     setCurrentScreen("Login");
   };
 
   const handleLogin = (username, password) => {
-    if (username && password) {
+    const storedUsername = localStorage.getItem("username",);
+    const storedPassowrd = localStorage.getItem("password",);
+
+    if (username === storedUsername && password === storedPassowrd) {
       setCurrentScreen("API");
     } else {
-      alert("Please enter a valid username and password");
+      setError("Invalid username or password");
     }
   };
 

@@ -7,20 +7,21 @@ const Login = ({onLogin}) => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
-    const handleLogin = () => {
-        const storedUsername = localStorage.getItem("username",);
-        const storedPassowrd = localStorage.getItem("password",);
+    const handleInput = () => {
+        if (!username || !password) {
+            setError("Please fill in all fields");
+            return;
+        }
 
-        if (username === storedUsername && password === storedPassowrd) {
-            onLogin(username, password);
-        } else {
+        const isValid = onLogin(username, password);
+        if (!isValid) {
             setError("Invalid username or password");
         }
     };
 
     const handleKeyDown = (event) => {
         if (event.key === "Enter") {
-            handleLogin();
+            handleInput();
         }
     };
 
@@ -36,7 +37,7 @@ const Login = ({onLogin}) => {
                   <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                     <form
                     onSubmit={(e) => {
-                      handleLogin();
+                      handleInput();
                     }} 
                     className="space-y-6">
                       <div>
@@ -80,7 +81,7 @@ const Login = ({onLogin}) => {
                       <div>
                         <button
                           type="button"
-                          onClick={handleLogin}
+                          onClick={handleInput}
                           className="flex w-full justify-center rounded-md bg-indigo-400 px-3 py-1.5 text-sm/6 font-semibold text-black shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         >
                           Sign in
